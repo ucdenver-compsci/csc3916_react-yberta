@@ -1,6 +1,6 @@
 import actionTypes from '../constants/actionTypes';
-import runtimeEnv from '@mars/heroku-js-runtime-env'
-
+//import runtimeEnv from '@mars/heroku-js-runtime-env'
+const env = process.env;
 
 function moviesFetched(movies) {
     return {
@@ -30,7 +30,6 @@ export function setMovie(movie) {
 }
 
 export function fetchMovie(movieId) {
-    const env = runtimeEnv();
     return dispatch => {
         return fetch(`${env.REACT_APP_API_URL}/movies/${movieId}?reviews=true`, {
             method: 'GET',
@@ -52,7 +51,6 @@ export function fetchMovie(movieId) {
 }
 
 export function fetchMovies() {
-    const env = runtimeEnv();
     return dispatch => {
         return fetch(`${env.REACT_APP_API_URL}/movies?reviews=true`, {
             method: 'GET',
