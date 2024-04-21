@@ -2,10 +2,7 @@ import constants from '../constants/actionTypes'
 
 let initialState = {
       movies: [],
-      selectedMovie: {
-            actors : [],
-            reviews : []
-      }
+      selectedMovie: null
 }
 
 const movieReducer = (state = initialState, action) => {
@@ -14,13 +11,16 @@ const movieReducer = (state = initialState, action) => {
       switch(action.type) {
             case constants.FETCH_MOVIES:
                   updated['movies'] = action.movies;
-                  updated['selectedMovie'] = action.movies[0];
+                  updated['selectedMovie'] = action.movies[0] || initialState.selectedMovie;
                   return updated;
             case constants.SET_MOVIE:
-                  updated['selectedMovie'] = action.selectedMovie;
-                  return updated;
+                  //updated['selectedMovie'] = action.selectedMovie;
+                  //return updated;
             case constants.FETCH_MOVIE:
-                  updated['selectedMovie'] = action.selectedMovie;
+                  updated['selectedMovie'] = {
+                        ...initialState.selectedMovie,
+                        ...action.selectedMovie
+                  };
                   return updated;
             default:
                   return state;
