@@ -14,8 +14,8 @@ const movieReducer = (state = initialState, action) => {
                   updated['selectedMovie'] = action.movies[0] || initialState.selectedMovie;
                   return updated;
             case constants.SET_MOVIE:
-                  //updated['selectedMovie'] = action.selectedMovie;
-                  //return updated;
+                  updated['selectedMovie'] = action.selectedMovie;
+                  return updated;
             case constants.FETCH_MOVIE:
                   updated['selectedMovie'] = {
                         ...initialState.selectedMovie,
