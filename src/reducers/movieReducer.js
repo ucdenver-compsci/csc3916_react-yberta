@@ -4,7 +4,7 @@ let initialState = {
       movies: [],
       selectedMovie: {
             actors : [],
-            reviews : [],
+            reviews : []
       }
 }
 
