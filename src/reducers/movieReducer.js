@@ -2,7 +2,6 @@ import constants from '../constants/actionTypes'
 
 let initialState = {
       movies: [],
-      reviews: [],
       selectedMovie: null
 }
 
