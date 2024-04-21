@@ -18,7 +18,7 @@ class MovieDetail extends Component {
         const DetailInfo = () => {
             if (!this.props.selectedMovie) {
                 return <div>Loading....</div>
-            } else if (this.props.selectedMovie) {
+            }
 
                 return (
                     <Card>
@@ -46,7 +46,7 @@ class MovieDetail extends Component {
                         </Card.Body>
                     </Card>
                 )
-            }
+
         }
         return (
             <DetailInfo />
