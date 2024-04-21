@@ -2,7 +2,12 @@ import constants from '../constants/actionTypes'
 
 let initialState = {
       movies: [],
-      selectedMovie: null
+      selectedMovie: {
+            title: ' ',
+            imageUrl : ' ',
+            avgRating: 0,
+            reviews : []
+      }
 }
 
 const movieReducer = (state = initialState, action) => {
