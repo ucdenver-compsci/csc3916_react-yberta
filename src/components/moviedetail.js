@@ -18,6 +18,7 @@ class MovieDetail extends Component {
     render() {
         const DetailInfo = () => {
             if (!this.props.selectedMovie) {
+                console.log("waiting");
                 return <div>Loading....</div>
             }
 
