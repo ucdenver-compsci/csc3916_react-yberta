@@ -17,7 +17,7 @@ class MovieDetail extends Component {
         const {dispatch} = this.props;
         if (this.props.selectedMovie == null) {
             dispatch(fetchMovie(this.props.movieId));
-            console.log(this.props.movieId);
+            //console.log(this.props.movieId);
         }
     }
     /*handleReviewChange = (event) =>{
@@ -31,7 +31,7 @@ class MovieDetail extends Component {
                 console.log("waiting");
                 return <div>Loading....</div>
             }
-            if(this.props.selectedMovie.movie) {
+            if(this.props.selectedMovie.movie && this.props.selectedMovie) {
                 return (
                     <Card>
                         <Card.Header>Movie Detail</Card.Header>
