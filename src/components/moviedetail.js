@@ -8,16 +8,15 @@ import { Image } from 'react-bootstrap';
 class MovieDetail extends Component {
 
     componentDidMount() {
-        const {dispatch, movieId} = this.props;
-        //if (this.props.selectedMovie == null) {
-        dispatch(fetchMovie(movieId));
-        //}
+        const {dispatch} = this.props;
+        if (this.props.selectedMovie == null) {
+            dispatch(fetchMovie(this.props.movieId));
+        }
     }
 
     render() {
         const DetailInfo = () => {
-            const{selectedMovie} = this.props;
-            if (!selectedMovie) {
+            if (!this.props.selectedMovie) {
                 return <div>Loading....</div>
             }
 
@@ -25,20 +24,20 @@ class MovieDetail extends Component {
                     <Card>
                         <Card.Header>Movie Detail</Card.Header>
                         <Card.Body>
-                            <Image className="image" src={selectedMovie.imageUrl} thumbnail/>
+                            <Image className="image" src={this.props.selectedMovie.imageUrl} thumbnail/>
                         </Card.Body>
                         <ListGroup>
-                            <ListGroupItem>{selectedMovie.title}</ListGroupItem>
+                            <ListGroupItem>{this.props.selectedMovie.title}</ListGroupItem>
                             <ListGroupItem>
-                                {selectedMovie.actors.map((actor, i) =>
+                                {this.props.selectedMovie.actors.map((actor, i) =>
                                     <p key={i}>
                                         <b>{actor.actorName}</b> {actor.characterName}
                                     </p>)}
                             </ListGroupItem>
-                            <ListGroupItem><h4><BsStarFill/> {selectedMovie.avgRating}</h4></ListGroupItem>
+                            <ListGroupItem><h4><BsStarFill/> {this.props.selectedMovie.avgRating}</h4></ListGroupItem>
                         </ListGroup>
                         <Card.Body>
-                            {selectedMovie.movieReviews.map((review, i) =>
+                            {this.props.selectedMovie.movieReviews.map((review, i) =>
                                 <p key={i}>
                                     <b>{review.username}</b>&nbsp; {review.review}
                                     &nbsp;  <BsStarFill/> {review.rating}
@@ -50,7 +49,7 @@ class MovieDetail extends Component {
 
         }
         return (
-            <DetailInfo selectedMovie={this.props.movies} />
+            <DetailInfo />
         )
     }
 }
