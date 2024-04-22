@@ -7,6 +7,12 @@ import { Image } from 'react-bootstrap';
 
 class MovieDetail extends Component {
 
+    constructor(props){
+        super(props);
+        this.state = {review: ''};
+        this.state = {rating: '0'};
+    }
+
     componentDidMount() {
         const {dispatch} = this.props;
         if (this.props.selectedMovie == null) {
@@ -14,14 +20,18 @@ class MovieDetail extends Component {
             console.log(this.props.movieId);
         }
     }
+    /*handleReviewChange = (event) =>{
+        this.setState({review: event.target.value});
+    }*/
+
 
     render() {
         const DetailInfo = () => {
-            if (!this.props.selectedMovie) {
+            if (!this.props.selectedMovie.movie) {
                 console.log("waiting");
                 return <div>Loading....</div>
             }
-
+            if(this.props.selectedMovie.movie) {
                 return (
                     <Card>
                         <Card.Header>Movie Detail</Card.Header>
@@ -48,7 +58,7 @@ class MovieDetail extends Component {
                         </Card.Body>
                     </Card>
                 )
-
+            }
         }
         return (
             <DetailInfo />
