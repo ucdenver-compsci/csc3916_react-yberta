@@ -9,8 +9,8 @@ class MovieDetail extends Component {
 
     constructor(props){
         super(props);
-        this.state = {review: ''};
-        this.state = {rating: '0'};
+        this.state = {reviewReview: ''};
+        this.state = {reviewRating: '0'};
     }
 
     componentDidMount() {
@@ -27,7 +27,7 @@ class MovieDetail extends Component {
 
     render() {
         const DetailInfo = () => {
-            if (!this.props.selectedMovie.movie) {
+            if (!this.props.selectedMovie) {
                 console.log("waiting");
                 return <div>Loading....</div>
             }
