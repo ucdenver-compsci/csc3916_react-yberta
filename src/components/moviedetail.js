@@ -31,7 +31,7 @@ class MovieDetail extends Component {
                 console.log("waiting");
                 return <div>Loading....</div>
             }
-            if(this.props.selectedMovie.movie && this.props.selectedMovie) {
+            if(this.props.selectedMovie) {
                 return (
                     <Card>
                         <Card.Header>Movie Detail</Card.Header>
