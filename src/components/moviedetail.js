@@ -30,8 +30,8 @@ class MovieDetail extends Component {
             if (!this.props.selectedMovie) {
                 console.log("waiting");
                 return <div>Loading....</div>
-            }
-            if(this.props.selectedMovie) {
+            }else{
+            //if(this.props.selectedMovie) {
                 return (
                     <Card>
                         <Card.Header>Movie Detail</Card.Header>
