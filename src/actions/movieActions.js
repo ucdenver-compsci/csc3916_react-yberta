@@ -45,8 +45,7 @@ export function fetchMovie(movieId) {
             }
             return response.json()
         }).then((res) => {
-            const movie = res[0];
-            dispatch(movieFetched(movie));
+            dispatch(movieFetched(res));
         }).catch((e) => console.log(e));
     }
 }
