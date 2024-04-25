@@ -33,11 +33,11 @@ class MovieDetail extends Component {
 
 
     render() {
-        const DetailInfo = () => {
+        /*const DetailInfo = () => {
             if (!this.props.selectedMovie) {
                 console.log("waiting");
                 return <div>Loading....</div>
-            }else{
+            }else{*/
             //if(this.props.selectedMovie) {
                 return (
                     <Card>
@@ -65,17 +65,12 @@ class MovieDetail extends Component {
                         </Card.Body>
                     </Card>
                 )
-            }
-        }
-        return (
-            <DetailInfo />
-        )
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        selectedMovie: state.movie.selectedMovie
+        selectedMovie: state.movie.selectedMovie,
     };
 };
 
