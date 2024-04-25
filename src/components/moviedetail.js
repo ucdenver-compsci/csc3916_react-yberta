@@ -73,11 +73,11 @@ class MovieDetail extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         selectedMovie: state.movie.selectedMovie
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps)(MovieDetail);
 
