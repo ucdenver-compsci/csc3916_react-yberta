@@ -9,6 +9,8 @@ class MovieDetail extends Component {
 
     constructor(props){
         super(props);
+        this.handleRatingChange = this.handleRatingChange.bind(this);
+        this.handleReviewChange = this.handleReviewChange.bind(this);
         //this.state = {reviewReview: ''};
         //this.state = {reviewRating: '0'};
         this.state = {
