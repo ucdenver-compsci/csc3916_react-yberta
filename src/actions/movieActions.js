@@ -45,7 +45,7 @@ export function fetchMovie(movieId) {
             }
             return response.json()
         }).then((res) => {
-            dispatch(movieFetched(res.movies));
+            dispatch(movieFetched(res));
         }).catch((e) => console.log(e));
     }
 }
@@ -66,7 +66,7 @@ export function fetchMovies() {
             }
             return response.json()
         }).then((res) => {
-            dispatch(moviesFetched(res));
+            dispatch(moviesFetched(res.movies));
         }).catch((e) => console.log(e));
     }
 }
@@ -93,7 +93,7 @@ export function setReview(movieId, review) {
             }
             return response.json();
         }).then((res) => {
-            dispatch(setReview(res));
+            dispatch(fetchMovie(res.movieId));
         })
             .catch((e) => console.log(e));
     }
