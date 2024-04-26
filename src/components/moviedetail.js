@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { fetchMovie, setReview } from "../actions/movieActions";
 import {connect} from 'react-redux';
-import {Card, Form, ListGroup, ListGroupItem} from 'react-bootstrap';
+import {Card, Form, ListGroup, ListGroupItem, Button} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
 
@@ -87,19 +87,13 @@ class MovieDetail extends Component {
                                 <Form.Group controlId = "review">
                                     <Form.Label>Reviews</Form.Label>
                                     <Form.Control as ="textarea" rows={3} name="review" placeholder="Enter Review"
-                                    value{this.state.review.review} onChange = {this.handleReviewChange}>
-                                        <option value ="0">Select Rating </option>
-                                        <option value ="1">1</option>
-                                        <option value ="2">2</option>
-                                        <option value ="3">3</option>
-                                        <option value ="4">4</option>
-                                        <option value ="5">5</option>
-                                    </Form.Control>
+                                    value={}{this.state.review.review} onChange = {this.handleReviewChange}/>
                                 </Form.Group>
+                                <Button variant="primary" type="submit">
+                                    Submit Review
+                                </Button>
                             </Form>
                         </Card.Body>
-
-
                     </Card>
                 )
     }
