@@ -45,7 +45,7 @@ export function fetchMovie(movieId) {
             }
             return response.json()
         }).then((res) => {
-            dispatch(movieFetched(res));
+            dispatch(movieFetched(res.movies));
         }).catch((e) => console.log(e));
     }
 }
@@ -73,7 +73,7 @@ export function fetchMovies() {
 
 export function setReview(movieId, review) {
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/reviews`,{
+        return fetch(`${env.REACT_APP_API_URL}/reviews`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -82,19 +82,19 @@ export function setReview(movieId, review) {
             },
             body: JSON.stringify({
                 movieId: movieId,
-                username: review.username,
+                username: localStorage.getItem('username'),
                 review: review.review,
                 rating: review.rating
             }),
             mode: 'cors'
         }).then((response) => {
-            if(!response.ok) {
+            if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json();
         }).then((res) => {
-            dispatch(fetchMovie(res));
-            })
+            dispatch(setReview(res));
+        })
             .catch((e) => console.log(e));
     }
 }
