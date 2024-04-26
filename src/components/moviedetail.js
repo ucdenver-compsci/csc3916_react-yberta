@@ -103,7 +103,7 @@ class MovieDetail extends Component {
                                 <Button variant="primary" type="submit">
                                     Submit Review
                                 </Button>
-                            </Form.Group>
+                            </Form>
                         </Card.Body>
                     </Card>
                 )
