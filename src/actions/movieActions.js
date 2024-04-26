@@ -81,10 +81,10 @@ export function setReview(movieId, review) {
                 'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                "movieId": review.movieId,
-                "username": localStorage.getItem('username'),
-                "review": review.review,
-                "rating": review.rating
+                movieId: review.movieId,
+                username: localStorage.getItem('username'),
+                review: review.review,
+                rating: review.rating
             }),
             mode: 'cors'
         }).then((response) => {
