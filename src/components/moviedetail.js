@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { fetchMovie } from "../actions/movieActions";
+import { fetchMovie, setReview } from "../actions/movieActions";
 import {connect} from 'react-redux';
-import {Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {Card, Form, ListGroup, ListGroupItem} from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { Image } from 'react-bootstrap';
 
@@ -27,9 +27,28 @@ class MovieDetail extends Component {
             //console.log(this.props.movieId);
         }
     }
-    /*handleReviewChange = (event) =>{
+    handleReviewChange = (event) =>{
         this.setState({review: event.target.value});
-    }*/
+    }
+    handleRatingChange = (event) => {
+        this.setState({reviewRating: event.target.value});
+    }
+    handleReviewSubmit = (event) => {
+        event.preventDefault();
+        const {dispatch} = this.props;
+        dispatch(setReview(this.props.movieId, this.state.review));
+        this.setState({
+            review: {
+                username: localStorage.getItem('username'),
+                review: ' ',
+                rating: 0
+                }
+            });
+    }
+
+
+
+
 
 
     render() {
@@ -63,6 +82,24 @@ class MovieDetail extends Component {
                                 </p>
                             ))}
                         </Card.Body>
+                        <Card.Body>
+                            <Form onSubmit={this.handleReviewSubmit}>
+                                <Form.Group controlId = "review">
+                                    <Form.Label>Reviews</Form.Label>
+                                    <Form.Control as ="textarea" rows={3} name="review" placeholder="Enter Review"
+                                    value{this.state.review.review} onChange = {this.handleReviewChange}>
+                                        <option value ="0">Select Rating </option>
+                                        <option value ="1">1</option>
+                                        <option value ="2">2</option>
+                                        <option value ="3">3</option>
+                                        <option value ="4">4</option>
+                                        <option value ="5">5</option>
+                                    </Form.Control>
+                                </Form.Group>
+                            </Form>
+                        </Card.Body>
+
+
                     </Card>
                 )
     }
