@@ -73,7 +73,7 @@ export function fetchMovies() {
 
 export function setReview(movieId, review) {
     return dispatch => {
-        return fetch('$env.REACT_APP_API_URL/reviews',{
+        return fetch(`${env.REACT_APP_API_URL}/reviews`,{
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -92,9 +92,8 @@ export function setReview(movieId, review) {
                 throw Error(response.statusText);
             }
             return response.json();
-        })
-            .then((res) => {
-                dispatch(moviesFetched(res));
+        }).then((res) => {
+            dispatch(fetchMovie(movieId));
             })
             .catch((e) => console.log(e));
     };
