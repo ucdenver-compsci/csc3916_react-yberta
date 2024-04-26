@@ -84,6 +84,17 @@ class MovieDetail extends Component {
                         </Card.Body>
                         <Card.Body>
                             <Form onSubmit={this.handleReviewSubmit}>
+                            <Form.Group controlId="reviewRating">
+                                <Form.Label>Rating</Form.Label>
+                                <Form.Control as ="select" name= "rating" value = {this.state.review.rating} onChange ={this.handleRatingChange}>
+                                    <option value ="0">Select Rating </option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </Form.Control>
+                            </Form.Group>
                                 <Form.Group controlId = "review">
                                     <Form.Label>Reviews</Form.Label>
                                     <Form.Control as ="textarea" rows={3} name="review" placeholder="Enter Review"
@@ -92,7 +103,7 @@ class MovieDetail extends Component {
                                 <Button variant="primary" type="submit">
                                     Submit Review
                                 </Button>
-                            </Form>
+                            </Form.Group>
                         </Card.Body>
                     </Card>
                 )
