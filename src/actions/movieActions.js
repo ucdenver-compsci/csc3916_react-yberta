@@ -92,7 +92,7 @@ export function setReview(movieId, review) {
             }
             return response.json();
         }).then((res) => {
-            dispatch(fetchMovie(movieId));
+            dispatch(fetchMovie(res.movieId));
         }).catch((e) => console.log(e));
     };
 }
