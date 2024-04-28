@@ -39,7 +39,7 @@ class MovieDetail extends Component {
         event.preventDefault();
         const {dispatch} = this.props;
         dispatch(setReview(this.props.movieId, this.state.review));
-        this.state({
+        this.setState({
             review:{
                 username: localStorage.getItem("username"),
                 review: '',
