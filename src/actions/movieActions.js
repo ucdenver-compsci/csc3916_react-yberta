@@ -81,7 +81,7 @@ export function setReview(movieId, review) {
                 'Authorization': localStorage.getItem('token')
             },
             body: JSON.stringify({
-                movieId: review.movieId,
+                movieId: movieId,
                 username: review.username,
                 review: review.review,
                 rating: review.rating

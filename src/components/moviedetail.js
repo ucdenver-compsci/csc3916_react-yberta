@@ -37,15 +37,17 @@ class MovieDetail extends Component {
     }
     handleReviewSubmit = (event) => {
         event.preventDefault();
-        const {dispatch} = this.props;
-        dispatch(setReview(this.props.movieId, this.state.review));
-        this.setState({
+        const {movieId} = this.props;
+        const token = localStorage.getItem('token');
+        const{review} = this.state;
+        this.props.dispatch(setReview(movieId, review, token));
+        /*this.setState({
             review:{
                 username: localStorage.getItem("username"),
                 review: '',
                 rating: 0
             }
-        })
+        })*/
 
     }
 
