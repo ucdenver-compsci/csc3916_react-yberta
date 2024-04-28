@@ -73,7 +73,7 @@ export function fetchMovies() {
 
 export function setReview(movieId, review) {
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/reviews/?reviews=true`, {
+        return fetch(`${env.REACT_APP_API_URL}/reviews`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -82,7 +82,6 @@ export function setReview(movieId, review) {
             },
             body: JSON.stringify({
                 movieId: review.movieId,
-                username: localStorage.getItem('username'),
                 review: review.review,
                 rating: review.rating
             }),
@@ -93,7 +92,7 @@ export function setReview(movieId, review) {
             }
             return response.json();
         }).then((res) => {
-            dispatch(fetchMovie(res.movieId));
+            dispatch(fetchMovie(movieId));
         }).catch((e) => console.log(e));
     };
 }

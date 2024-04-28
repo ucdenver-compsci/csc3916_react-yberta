@@ -15,7 +15,7 @@ class MovieDetail extends Component {
         //this.state = {reviewRating: '0'};
         this.state = {
             review: {
-                username: localStorage.getItem('username'),
+                username: '',
                 review: ' ',
                 rating: 0
             }
@@ -30,22 +30,16 @@ class MovieDetail extends Component {
         }
     }
     handleReviewChange = (event) =>{
-        this.setState({review: event.target.value});
+        this.setState({review: {...this.state.review, review: event.target.value}});
     }
     handleRatingChange = (event) => {
-        this.setState({reviewRating: event.target.value});
+        this.setState({review:{...this.state.review, rating: event.target.value}});
     }
     handleReviewSubmit = (event) => {
         event.preventDefault();
         const {dispatch} = this.props;
-        dispatch(setReview(this.props.movieId, this.state.review, this.state.rating));
-        this.setState({
-            review: {
-                username: localStorage.getItem('username'),
-                review: ' ',
-                rating: 0
-                }
-            });
+        dispatch(setReview(movieId, this.state.review));
+
     }
 
 
