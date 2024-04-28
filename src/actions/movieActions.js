@@ -73,7 +73,7 @@ export function fetchMovies() {
 
 export function setReview(movieId, review) {
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/reviews`, {
+        return fetch(`${env.REACT_APP_API_URL}/reviews/?reviews=true`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
