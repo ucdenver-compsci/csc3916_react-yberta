@@ -38,7 +38,7 @@ class MovieDetail extends Component {
     handleReviewSubmit = (event) => {
         event.preventDefault();
         const {dispatch} = this.props;
-        dispatch(setReview(movieId, this.state.review));
+        dispatch(setReview(this.props.movieId, this.state.review));
 
     }
 
