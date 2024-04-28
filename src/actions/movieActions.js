@@ -82,6 +82,7 @@ export function setReview(movieId, review) {
             },
             body: JSON.stringify({
                 movieId: review.movieId,
+                username: review.username,
                 review: review.review,
                 rating: review.rating
             }),
