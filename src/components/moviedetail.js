@@ -103,9 +103,7 @@ class MovieDetail extends Component {
                                     <Form.Control as ="textarea" rows={3} name="review" placeholder="Enter Review"
                                     value={this.state.review.review} onChange = {this.handleReviewChange}/>
                                 </Form.Group>
-                                <Button variant="primary" type="submit">
-                                    Submit Review
-                                </Button>
+                                <Button onClick={this.handleReviewSubmit}>Submit Review</Button>
                             </Form>
                         </Card.Body>
                     </Card>
